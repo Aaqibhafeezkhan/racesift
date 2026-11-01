@@ -1,0 +1,349 @@
+?   	example.com/shop/cmd/warm	[no test files]
+ok  	example.com/shop/healthy	1.009s
+==================
+WARNING: DATA RACE
+Write at 0x00c00010a390 by goroutine 8:
+  runtime.mapaccess2_faststr()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/map_faststr.go:108 +0x42c
+  example.com/shop/inventory.(*PriceCache).Set()
+      /workspace/repo/examples/programs/inventory/cache.go:25 +0xa0
+  example.com/shop/inventory.fill()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x13c
+  example.com/shop/inventory.TestCacheConcurrentRefresh.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x1c
+
+Previous read at 0x00c00010a390 by goroutine 9:
+  runtime.mapaccess1_faststr()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/map_faststr.go:13 +0x40c
+  example.com/shop/inventory.(*PriceCache).Get()
+      /workspace/repo/examples/programs/inventory/cache.go:18 +0x9c
+  example.com/shop/inventory.TestCacheConcurrentRefresh.func2()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x18
+
+Goroutine 8 (running) created at:
+  example.com/shop/inventory.TestCacheConcurrentRefresh()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x174
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 9 (finished) created at:
+  example.com/shop/inventory.TestCacheConcurrentRefresh()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x214
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+--- FAIL: TestCacheConcurrentRefresh (0.00s)
+    testing.go:1398: race detected during execution of test
+==================
+WARNING: DATA RACE
+Write at 0x00c0000b2060 by goroutine 13:
+  example.com/shop/inventory.LoadAll.func1()
+      /workspace/repo/examples/programs/inventory/batch.go:25 +0x15c
+
+Previous read at 0x00c0000b2060 by goroutine 12:
+  example.com/shop/inventory.LoadAll.func1()
+      /workspace/repo/examples/programs/inventory/batch.go:25 +0xe8
+
+Goroutine 13 (running) created at:
+  example.com/shop/inventory.LoadAll()
+      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2dc
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 12 (running) created at:
+  example.com/shop/inventory.LoadAll()
+      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2dc
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+==================
+WARNING: DATA RACE
+Write at 0x00c0000a4060 by goroutine 11:
+  runtime.mapaccess2_faststr()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/map_faststr.go:108 +0x42c
+  example.com/shop/inventory.(*PriceCache).Set()
+      /workspace/repo/examples/programs/inventory/cache.go:25 +0xa0
+  example.com/shop/inventory.fill()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x13c
+  example.com/shop/inventory.TestLoadAll.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x1c
+
+Previous read at 0x00c0000a4060 by goroutine 12:
+  runtime.mapaccess1_faststr()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/map_faststr.go:13 +0x40c
+  example.com/shop/inventory.(*PriceCache).Get()
+      /workspace/repo/examples/programs/inventory/cache.go:18 +0xc0
+  example.com/shop/inventory.LoadAll.func1()
+      /workspace/repo/examples/programs/inventory/batch.go:20 +0xa0
+
+Goroutine 11 (running) created at:
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x248
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 12 (running) created at:
+  example.com/shop/inventory.LoadAll()
+      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2dc
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+==================
+WARNING: DATA RACE
+Write at 0x00c000096498 by goroutine 11:
+  example.com/shop/inventory.(*PriceCache).Set()
+      /workspace/repo/examples/programs/inventory/cache.go:25 +0xac
+  example.com/shop/inventory.fill()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x13c
+  example.com/shop/inventory.TestLoadAll.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x1c
+
+Previous read at 0x00c000096498 by goroutine 12:
+  example.com/shop/inventory.(*PriceCache).Get()
+      /workspace/repo/examples/programs/inventory/cache.go:18 +0xcc
+  example.com/shop/inventory.LoadAll.func1()
+      /workspace/repo/examples/programs/inventory/batch.go:20 +0xa0
+
+Goroutine 11 (running) created at:
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x248
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 12 (running) created at:
+  example.com/shop/inventory.LoadAll()
+      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2dc
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+==================
+WARNING: DATA RACE
+Read at 0x00c0000a8098 by goroutine 14:
+  runtime.growslice()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/slice.go:155 +0x0
+  example.com/shop/inventory.LoadAll.func1()
+      /workspace/repo/examples/programs/inventory/batch.go:25 +0x120
+
+Previous write at 0x00c0000a8098 by goroutine 13:
+  example.com/shop/inventory.LoadAll.func1()
+      /workspace/repo/examples/programs/inventory/batch.go:25 +0x144
+
+Goroutine 14 (running) created at:
+  example.com/shop/inventory.LoadAll()
+      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2dc
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 13 (finished) created at:
+  example.com/shop/inventory.LoadAll()
+      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+  example.com/shop/inventory.TestLoadAll()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2dc
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+--- FAIL: TestLoadAll (0.00s)
+    testing.go:1398: race detected during execution of test
+==================
+WARNING: DATA RACE
+Write at 0x00c000010298 by goroutine 19:
+  ??()
+      -:0 +0x3803c
+  sync/atomic.AddInt64()
+      <autogenerated>:1 +0x14
+
+Previous read at 0x00c000010298 by goroutine 16:
+  example.com/shop/inventory.(*Stats).Snapshot()
+      /workspace/repo/examples/programs/inventory/stats.go:15 +0x134
+  example.com/shop/inventory.TestStats()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:42 +0x12c
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 19 (running) created at:
+  example.com/shop/inventory.TestStats()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:40 +0x6c
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 16 (running) created at:
+  testing.(*T).Run()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x5e4
+  testing.runTests.func1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:2161 +0x80
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.runTests()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:2159 +0x6e0
+  testing.(*M).Run()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:2027 +0xb74
+  main.main()
+      _testmain.go:55 +0x294
+==================
+--- FAIL: TestStats (0.00s)
+    testing.go:1398: race detected during execution of test
+==================
+WARNING: DATA RACE
+Write at 0x00c00021e080 by goroutine 23:
+  bytes.(*Buffer).Write()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/bytes/buffer.go:176 +0x38
+  fmt.Fprintf()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/fmt/print.go:225 +0x94
+  example.com/shop/inventory.(*Audit).Record()
+      /workspace/repo/examples/programs/inventory/audit.go:14 +0x110
+  example.com/shop/inventory.Reserve()
+      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x8c
+  example.com/shop/inventory.TestReserve.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+
+Previous write at 0x00c00021e080 by goroutine 22:
+  bytes.(*Buffer).Write()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/bytes/buffer.go:176 +0x38
+  fmt.Fprintf()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/fmt/print.go:225 +0x94
+  example.com/shop/inventory.(*Audit).Record()
+      /workspace/repo/examples/programs/inventory/audit.go:14 +0x110
+  example.com/shop/inventory.Reserve()
+      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x8c
+  example.com/shop/inventory.TestReserve.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+
+Goroutine 23 (running) created at:
+  example.com/shop/inventory.TestReserve()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xe0
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 22 (finished) created at:
+  example.com/shop/inventory.TestReserve()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xe0
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+==================
+WARNING: DATA RACE
+Read at 0x00c00021e060 by goroutine 23:
+  bytes.(*Buffer).tryGrowByReslice()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/bytes/buffer.go:116 +0x44
+  bytes.(*Buffer).Write()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/bytes/buffer.go:177 +0xac
+  fmt.Fprintf()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/fmt/print.go:225 +0x94
+  example.com/shop/inventory.(*Audit).Record()
+      /workspace/repo/examples/programs/inventory/audit.go:14 +0x110
+  example.com/shop/inventory.Reserve()
+      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x8c
+  example.com/shop/inventory.TestReserve.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+
+Previous write at 0x00c00021e060 by goroutine 22:
+  bytes.(*Buffer).grow()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/bytes/buffer.go:137 +0x398
+  bytes.(*Buffer).Write()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/bytes/buffer.go:179 +0xb4
+  fmt.Fprintf()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/fmt/print.go:225 +0x94
+  example.com/shop/inventory.(*Audit).Record()
+      /workspace/repo/examples/programs/inventory/audit.go:14 +0x110
+  example.com/shop/inventory.Reserve()
+      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x8c
+  example.com/shop/inventory.TestReserve.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+
+Goroutine 23 (running) created at:
+  example.com/shop/inventory.TestReserve()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xe0
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 22 (finished) created at:
+  example.com/shop/inventory.TestReserve()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xe0
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+--- FAIL: TestReserve (0.00s)
+    testing.go:1398: race detected during execution of test
+==================
+WARNING: DATA RACE
+Write at 0x00c000296060 by goroutine 25:
+  runtime.mapaccess2_faststr()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/map_faststr.go:108 +0x42c
+  example.com/shop/inventory.(*PriceCache).Set()
+      /workspace/repo/examples/programs/inventory/cache.go:25 +0xa0
+  example.com/shop/inventory.fill()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x13c
+  example.com/shop/inventory.TestCacheWarmAndServe.func1()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x1c
+
+Previous read at 0x00c000296060 by goroutine 26:
+  runtime.mapaccess1_faststr()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/runtime/map_faststr.go:13 +0x40c
+  example.com/shop/inventory.(*PriceCache).Get()
+      /workspace/repo/examples/programs/inventory/cache.go:18 +0x9c
+  example.com/shop/inventory.TestCacheWarmAndServe.func2()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x18
+
+Goroutine 25 (running) created at:
+  example.com/shop/inventory.TestCacheWarmAndServe()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x174
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+
+Goroutine 26 (finished) created at:
+  example.com/shop/inventory.TestCacheWarmAndServe()
+      /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x214
+  testing.tRunner()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1689 +0x180
+  testing.(*T).Run.gowrap1()
+      /home/builder/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.12.linux-arm64/src/testing/testing.go:1742 +0x40
+==================
+--- FAIL: TestCacheWarmAndServe (0.00s)
+    testing.go:1398: race detected during execution of test
+FAIL
+FAIL	example.com/shop/inventory	0.005s
+FAIL

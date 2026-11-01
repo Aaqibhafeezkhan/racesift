@@ -1,0 +1,5 @@
+ok  	github.com/sirupsen/logrus	2.433s
+ok  	github.com/sirupsen/logrus/hooks/syslog	1.008s
+ok  	github.com/sirupsen/logrus/hooks/test	1.009s
+ok  	github.com/sirupsen/logrus/hooks/writer	1.007s
+?   	github.com/sirupsen/logrus/internal/testutils	[no test files]

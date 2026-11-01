@@ -1,0 +1,8 @@
+go: downloading github.com/stretchr/testify v1.12.1
+go: downloading go.yaml.in/yaml/v3 v3.0.5
+ok  	github.com/sirupsen/logrus	2.425s
+ok  	github.com/sirupsen/logrus/hooks/slog	1.012s
+ok  	github.com/sirupsen/logrus/hooks/syslog	1.010s
+ok  	github.com/sirupsen/logrus/hooks/test	1.010s
+ok  	github.com/sirupsen/logrus/hooks/writer	1.015s
+?   	github.com/sirupsen/logrus/internal/testutils	[no test files]

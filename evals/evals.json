@@ -1,0 +1,28 @@
+[
+  {
+    "skills": ["triaging-go-data-races"],
+    "query": "CI failed with a bunch of WARNING: DATA RACE output. Here's the log. What's going on?",
+    "expected_behavior": [
+      "Saves the log and runs racesift.go review on it",
+      "Reads both code locations of the top races and names the shared variable",
+      "Proposes fixes without editing code unless asked"
+    ]
+  },
+  {
+    "skills": ["triaging-go-data-races"],
+    "query": "Does my branch add any new data races compared to main?",
+    "expected_behavior": [
+      "Gets race output for both main and the branch",
+      "Runs racesift.go compare with main as BASE",
+      "Says that a race that didn't happen in a run can't be ruled out"
+    ]
+  },
+  {
+    "skills": ["triaging-go-data-races"],
+    "query": "go test -race passes now. So we have no data races, right?",
+    "expected_behavior": [
+      "Explains that the race detector only reports races that happen during the run",
+      "Doesn't claim the code is race free"
+    ]
+  }
+]

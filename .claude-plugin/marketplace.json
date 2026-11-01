@@ -1,0 +1,14 @@
+{
+  "name": "racesift-marketplace",
+  "description": "Marketplace for racesift, which groups and ranks Go race detector reports.",
+  "owner": {
+    "name": "Giulliano Macedo"
+  },
+  "plugins": [
+    {
+      "name": "racesift",
+      "source": "./plugin",
+      "description": "Group and rank Go race detector reports from go test -race output, with the code lines and tests involved."
+    }
+  ]
+}

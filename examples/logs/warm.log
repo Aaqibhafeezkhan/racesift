@@ -1,0 +1,25 @@
+==================
+WARNING: DATA RACE
+Write at 0x00c0000a20f0 by goroutine 7:
+  runtime.mapaccess2_faststr()
+      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc
+  example.com/shop/inventory.(*PriceCache).Set()
+      /workspace/repo/examples/programs/inventory/cache.go:25 +0x98
+  main.main.func1()
+      /workspace/repo/examples/programs/cmd/warm/main.go:19 +0xd8
+
+Previous read at 0x00c0000a20f0 by main goroutine:
+  runtime.mapaccess1_faststr()
+      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c
+  example.com/shop/inventory.(*PriceCache).Get()
+      /workspace/repo/examples/programs/inventory/cache.go:18 +0x198
+  main.main()
+      /workspace/repo/examples/programs/cmd/warm/main.go:22 +0x170
+
+Goroutine 7 (running) created at:
+  main.main()
+      /workspace/repo/examples/programs/cmd/warm/main.go:16 +0x16c
+==================
+sku-1: 0 false
+Found 1 data race(s)
+exit status 66

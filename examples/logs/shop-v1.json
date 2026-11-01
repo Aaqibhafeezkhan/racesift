@@ -1,0 +1,406 @@
+{"Time":"2026-11-01T22:51:36.328383963Z","Action":"start","Package":"example.com/shop/inventory"}
+{"Time":"2026-11-01T22:51:36.328903671Z","Action":"start","Package":"example.com/shop/healthy"}
+{"Time":"2026-11-01T22:51:36.329534421Z","Action":"start","Package":"example.com/shop/cmd/warm"}
+{"Time":"2026-11-01T22:51:36.329598088Z","Action":"output","Package":"example.com/shop/cmd/warm","Output":"?   \texample.com/shop/cmd/warm\t[no test files]\n"}
+{"Time":"2026-11-01T22:51:36.329698796Z","Action":"skip","Package":"example.com/shop/cmd/warm","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.332641379Z","Action":"run","Package":"example.com/shop/healthy","Test":"TestConcurrentUse"}
+{"Time":"2026-11-01T22:51:36.332807671Z","Action":"output","Package":"example.com/shop/healthy","Test":"TestConcurrentUse","Output":"=== RUN   TestConcurrentUse\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.332883213Z","Action":"output","Package":"example.com/shop/healthy","Test":"TestConcurrentUse","Output":"--- PASS: TestConcurrentUse (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.332928796Z","Action":"pass","Package":"example.com/shop/healthy","Test":"TestConcurrentUse","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.333010838Z","Action":"output","Package":"example.com/shop/healthy","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.332683879Z","Action":"run","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh"}
+{"Time":"2026-11-01T22:51:36.333119296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"=== RUN   TestCacheConcurrentRefresh\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.333214046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.333268421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.333320671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Read at 0x00c0000a3020 by goroutine 9:\n"}
+{"Time":"2026-11-01T22:51:36.333428046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  runtime.mapaccess1_faststr()\n"}
+{"Time":"2026-11-01T22:51:36.333513213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c\n"}
+{"Time":"2026-11-01T22:51:36.333574421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.(*PriceCache).Get()\n"}
+{"Time":"2026-11-01T22:51:36.333641504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/cache.go:18 +0x90\n"}
+{"Time":"2026-11-01T22:51:36.333677129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh.func2()\n"}
+{"Time":"2026-11-01T22:51:36.333723171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x18\n"}
+{"Time":"2026-11-01T22:51:36.333771504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.333831088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Previous write at 0x00c0000a3020 by goroutine 8:\n"}
+{"Time":"2026-11-01T22:51:36.333890796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  runtime.mapaccess2_faststr()\n"}
+{"Time":"2026-11-01T22:51:36.333941546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc\n"}
+{"Time":"2026-11-01T22:51:36.334076379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.(*PriceCache).Set()\n"}
+{"Time":"2026-11-01T22:51:36.334123504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/cache.go:25 +0x98\n"}
+{"Time":"2026-11-01T22:51:36.334177046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.fill()\n"}
+{"Time":"2026-11-01T22:51:36.334245338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c\n"}
+{"Time":"2026-11-01T22:51:36.334293588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh.func1()\n"}
+{"Time":"2026-11-01T22:51:36.334334421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.334392088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.334466338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Goroutine 9 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.334525754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh()\n"}
+{"Time":"2026-11-01T22:51:36.334577963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x1fc\n"}
+{"Time":"2026-11-01T22:51:36.334617671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.334663213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.334716796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.334746213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.334773129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.334813088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Goroutine 8 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.334867129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh()\n"}
+{"Time":"2026-11-01T22:51:36.334912754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.334944004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.334981671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.335022629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.335080963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.335106921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.335134129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.335161921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.335186838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Read at 0x00c0000c4428 by goroutine 9:\n"}
+{"Time":"2026-11-01T22:51:36.335215213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.(*PriceCache).Get()\n"}
+{"Time":"2026-11-01T22:51:36.335240504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/cache.go:18 +0x94\n"}
+{"Time":"2026-11-01T22:51:36.335265421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh.func2()\n"}
+{"Time":"2026-11-01T22:51:36.335290379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x18\n"}
+{"Time":"2026-11-01T22:51:36.335315379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.335353921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Previous write at 0x00c0000c4428 by goroutine 8:\n"}
+{"Time":"2026-11-01T22:51:36.335377254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.(*PriceCache).Set()\n"}
+{"Time":"2026-11-01T22:51:36.335400879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/cache.go:25 +0xa4\n"}
+{"Time":"2026-11-01T22:51:36.335424671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.fill()\n"}
+{"Time":"2026-11-01T22:51:36.335449213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c\n"}
+{"Time":"2026-11-01T22:51:36.335472879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh.func1()\n"}
+{"Time":"2026-11-01T22:51:36.335506379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.335538254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.335589254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Goroutine 9 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.335623504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh()\n"}
+{"Time":"2026-11-01T22:51:36.335654588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x1fc\n"}
+{"Time":"2026-11-01T22:51:36.335706879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.335730879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.335754338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.335779129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.335801754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.335825754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"Goroutine 8 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.335850213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  example.com/shop/inventory.TestCacheConcurrentRefresh()\n"}
+{"Time":"2026-11-01T22:51:36.335874171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.335897838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.335921796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.335947421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.335973213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.335996879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.336024046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"    testing.go:1867: race detected during execution of test\n","OutputType":"error"}
+{"Time":"2026-11-01T22:51:36.336054713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Output":"--- FAIL: TestCacheConcurrentRefresh (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.336078254Z","Action":"fail","Package":"example.com/shop/inventory","Test":"TestCacheConcurrentRefresh","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.336122629Z","Action":"run","Package":"example.com/shop/inventory","Test":"TestLoadAll"}
+{"Time":"2026-11-01T22:51:36.336146296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"=== RUN   TestLoadAll\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.336169713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.336193379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.336228129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Read at 0x00c000012420 by goroutine 14:\n"}
+{"Time":"2026-11-01T22:51:36.336258754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.336284838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:25 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.336348296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.336376796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Previous write at 0x00c000012420 by goroutine 13:\n"}
+{"Time":"2026-11-01T22:51:36.336409671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.336434754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:25 +0x138\n"}
+{"Time":"2026-11-01T22:51:36.336458379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.336482879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 14 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.336507213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.336527254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.336578713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.336607463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0\n"}
+{"Time":"2026-11-01T22:51:36.336630879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.336654004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.336676046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.336697921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.336720171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.336741796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 13 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.336787129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.336821629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.336847879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.336881254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0\n"}
+{"Time":"2026-11-01T22:51:36.336909963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.336937004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.336960713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.337011838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.337038504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.337061546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.337084546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.337112963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Read at 0x00c0000142e8 by goroutine 14:\n"}
+{"Time":"2026-11-01T22:51:36.337135588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  runtime.growslice()\n"}
+{"Time":"2026-11-01T22:51:36.337159296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/runtime/slice.go:178 +0x0\n"}
+{"Time":"2026-11-01T22:51:36.337186254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.337209629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:25 +0x104\n"}
+{"Time":"2026-11-01T22:51:36.337233129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.337257838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Previous write at 0x00c0000142e8 by goroutine 13:\n"}
+{"Time":"2026-11-01T22:51:36.337281046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.337309463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:25 +0x120\n"}
+{"Time":"2026-11-01T22:51:36.337345588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.337370129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 14 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.337398046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.337421004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.337447796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.337471504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0\n"}
+{"Time":"2026-11-01T22:51:36.337495254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.337523588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.337582088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.337642254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.337671838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.337726463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 13 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.337751213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.337775504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.337799546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.337823588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0\n"}
+{"Time":"2026-11-01T22:51:36.337847421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.337871879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.337894379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.337920879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.337943879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.337978713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.338008004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.338031463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Write at 0x00c0000a30e0 by goroutine 11:\n"}
+{"Time":"2026-11-01T22:51:36.338054588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  runtime.mapaccess2_faststr()\n"}
+{"Time":"2026-11-01T22:51:36.338078796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc\n"}
+{"Time":"2026-11-01T22:51:36.338103379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.(*PriceCache).Set()\n"}
+{"Time":"2026-11-01T22:51:36.338131129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/cache.go:25 +0x98\n"}
+{"Time":"2026-11-01T22:51:36.338154838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.fill()\n"}
+{"Time":"2026-11-01T22:51:36.338178129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c\n"}
+{"Time":"2026-11-01T22:51:36.338201588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.338225379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.338247879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.338271088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Previous read at 0x00c0000a30e0 by goroutine 15:\n"}
+{"Time":"2026-11-01T22:51:36.338324004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  runtime.mapaccess1_faststr()\n"}
+{"Time":"2026-11-01T22:51:36.338348879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c\n"}
+{"Time":"2026-11-01T22:51:36.338372963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.(*PriceCache).Get()\n"}
+{"Time":"2026-11-01T22:51:36.338396963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/cache.go:18 +0xac\n"}
+{"Time":"2026-11-01T22:51:36.338420588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.338444088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:20 +0x8c\n"}
+{"Time":"2026-11-01T22:51:36.338468129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.338491921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 11 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.338521713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.338574963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x218\n"}
+{"Time":"2026-11-01T22:51:36.338616671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.338641171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.338662796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.338684004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.338705213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.338726879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 15 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.338748171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.338769879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.338791004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.338811713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0\n"}
+{"Time":"2026-11-01T22:51:36.338832629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.338853379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.338874004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.338925838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.338946421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.338967879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.338988171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.339008296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Write at 0x00c0000c4510 by goroutine 11:\n"}
+{"Time":"2026-11-01T22:51:36.339028754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.(*PriceCache).Set()\n"}
+{"Time":"2026-11-01T22:51:36.339049171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/cache.go:25 +0xa4\n"}
+{"Time":"2026-11-01T22:51:36.339069588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.fill()\n"}
+{"Time":"2026-11-01T22:51:36.339089879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c\n"}
+{"Time":"2026-11-01T22:51:36.339110504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.339131171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.339151421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.339171879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Previous read at 0x00c0000c4510 by goroutine 13:\n"}
+{"Time":"2026-11-01T22:51:36.339193838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.(*PriceCache).Get()\n"}
+{"Time":"2026-11-01T22:51:36.339214629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/cache.go:18 +0xb8\n"}
+{"Time":"2026-11-01T22:51:36.339235213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll.func1()\n"}
+{"Time":"2026-11-01T22:51:36.339255671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:20 +0x8c\n"}
+{"Time":"2026-11-01T22:51:36.339276004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.339296504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 11 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.339316754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.339344213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x218\n"}
+{"Time":"2026-11-01T22:51:36.339386296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.339427963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.339485879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.339509963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.339537296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.339586088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"Goroutine 13 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.339610546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.LoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.339631379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4\n"}
+{"Time":"2026-11-01T22:51:36.339651671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  example.com/shop/inventory.TestLoadAll()\n"}
+{"Time":"2026-11-01T22:51:36.339672171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0\n"}
+{"Time":"2026-11-01T22:51:36.339692379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.339712796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.339733088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.339753754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.339773879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.339794588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"    testing.go:1867: race detected during execution of test\n","OutputType":"error"}
+{"Time":"2026-11-01T22:51:36.339816254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestLoadAll","Output":"--- FAIL: TestLoadAll (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.339836796Z","Action":"fail","Package":"example.com/shop/inventory","Test":"TestLoadAll","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.339857963Z","Action":"run","Package":"example.com/shop/inventory","Test":"TestStats"}
+{"Time":"2026-11-01T22:51:36.339878796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"=== RUN   TestStats\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.339900338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.339920588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.339940963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"Write at 0x00c0001a8068 by goroutine 17:\n"}
+{"Time":"2026-11-01T22:51:36.339960963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  ??()\n"}
+{"Time":"2026-11-01T22:51:36.339981379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      -:0 +0x3821c\n"}
+{"Time":"2026-11-01T22:51:36.340001629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  sync/atomic.AddInt64()\n"}
+{"Time":"2026-11-01T22:51:36.340021838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      \u003cautogenerated\u003e:1 +0x10\n"}
+{"Time":"2026-11-01T22:51:36.340065963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.340086254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"Previous read at 0x00c0001a8068 by goroutine 16:\n"}
+{"Time":"2026-11-01T22:51:36.340106379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  example.com/shop/inventory.(*Stats).Snapshot()\n"}
+{"Time":"2026-11-01T22:51:36.340126671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /workspace/repo/examples/programs/inventory/stats.go:15 +0x12c\n"}
+{"Time":"2026-11-01T22:51:36.340154296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  example.com/shop/inventory.TestStats()\n"}
+{"Time":"2026-11-01T22:51:36.340174796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:42 +0x124\n"}
+{"Time":"2026-11-01T22:51:36.340195129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.340215504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.340235838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.340255921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.340275921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.340296129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"Goroutine 17 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.340316254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  example.com/shop/inventory.TestStats()\n"}
+{"Time":"2026-11-01T22:51:36.340341546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:40 +0x6c\n"}
+{"Time":"2026-11-01T22:51:36.340362546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.340418921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.340444921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.340469671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.340493879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.340518629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"Goroutine 16 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.340553254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.(*T).Run()\n"}
+{"Time":"2026-11-01T22:51:36.340594921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x7bc\n"}
+{"Time":"2026-11-01T22:51:36.340652588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.runTests.func1()\n"}
+{"Time":"2026-11-01T22:51:36.340699379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2744 +0x74\n"}
+{"Time":"2026-11-01T22:51:36.340753671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.340776088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.340798004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.runTests()\n"}
+{"Time":"2026-11-01T22:51:36.340823588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2742 +0x7a0\n"}
+{"Time":"2026-11-01T22:51:36.340845004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  testing.(*M).Run()\n"}
+{"Time":"2026-11-01T22:51:36.340866338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      /usr/local/go/src/testing/testing.go:2602 +0xb38\n"}
+{"Time":"2026-11-01T22:51:36.340887754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"  main.main()\n"}
+{"Time":"2026-11-01T22:51:36.340909338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"      _testmain.go:54 +0x100\n"}
+{"Time":"2026-11-01T22:51:36.340930296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.340951254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"    testing.go:1867: race detected during execution of test\n","OutputType":"error"}
+{"Time":"2026-11-01T22:51:36.340973463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestStats","Output":"--- FAIL: TestStats (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.340994754Z","Action":"fail","Package":"example.com/shop/inventory","Test":"TestStats","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.341016254Z","Action":"run","Package":"example.com/shop/inventory","Test":"TestReserve"}
+{"Time":"2026-11-01T22:51:36.341037296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"=== RUN   TestReserve\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.341058046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.341078338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.341098796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Write at 0x00c0002100b0 by goroutine 23:\n"}
+{"Time":"2026-11-01T22:51:36.341119213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  bytes.(*Buffer).Write()\n"}
+{"Time":"2026-11-01T22:51:36.341139963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/bytes/buffer.go:194 +0x38\n"}
+{"Time":"2026-11-01T22:51:36.341160421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  fmt.Fprintf()\n"}
+{"Time":"2026-11-01T22:51:36.341180421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/fmt/print.go:217 +0x94\n"}
+{"Time":"2026-11-01T22:51:36.341200796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.(*Audit).Record()\n"}
+{"Time":"2026-11-01T22:51:36.341221338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4\n"}
+{"Time":"2026-11-01T22:51:36.341241713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.Reserve()\n"}
+{"Time":"2026-11-01T22:51:36.341286921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c\n"}
+{"Time":"2026-11-01T22:51:36.341307713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve.func1()\n"}
+{"Time":"2026-11-01T22:51:36.341327838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.341348963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.341369421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Previous write at 0x00c0002100b0 by goroutine 22:\n"}
+{"Time":"2026-11-01T22:51:36.341390338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  bytes.(*Buffer).Write()\n"}
+{"Time":"2026-11-01T22:51:36.341441129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/bytes/buffer.go:194 +0x38\n"}
+{"Time":"2026-11-01T22:51:36.341478421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  fmt.Fprintf()\n"}
+{"Time":"2026-11-01T22:51:36.341514504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/fmt/print.go:217 +0x94\n"}
+{"Time":"2026-11-01T22:51:36.341544004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.(*Audit).Record()\n"}
+{"Time":"2026-11-01T22:51:36.341583546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4\n"}
+{"Time":"2026-11-01T22:51:36.341609546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.Reserve()\n"}
+{"Time":"2026-11-01T22:51:36.341634171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c\n"}
+{"Time":"2026-11-01T22:51:36.341661129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve.func1()\n"}
+{"Time":"2026-11-01T22:51:36.341685463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.341709504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.341735546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Goroutine 23 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.341759296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve()\n"}
+{"Time":"2026-11-01T22:51:36.341783171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc\n"}
+{"Time":"2026-11-01T22:51:36.341806379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.341829963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.341851796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.341876796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.341932713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.341956379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Goroutine 22 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.341979921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve()\n"}
+{"Time":"2026-11-01T22:51:36.342004338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc\n"}
+{"Time":"2026-11-01T22:51:36.342028796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.342052338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.342074629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.342098129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.342120504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.342143171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.342166379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.342189879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Read at 0x00c000210090 by goroutine 23:\n"}
+{"Time":"2026-11-01T22:51:36.342212879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  bytes.(*Buffer).tryGrowByReslice()\n"}
+{"Time":"2026-11-01T22:51:36.342236213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/bytes/buffer.go:134 +0x44\n"}
+{"Time":"2026-11-01T22:51:36.342258671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  bytes.(*Buffer).Write()\n"}
+{"Time":"2026-11-01T22:51:36.342287338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/bytes/buffer.go:195 +0xac\n"}
+{"Time":"2026-11-01T22:51:36.342310879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  fmt.Fprintf()\n"}
+{"Time":"2026-11-01T22:51:36.342334379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/fmt/print.go:217 +0x94\n"}
+{"Time":"2026-11-01T22:51:36.342372838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.(*Audit).Record()\n"}
+{"Time":"2026-11-01T22:51:36.342410629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4\n"}
+{"Time":"2026-11-01T22:51:36.342436379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.Reserve()\n"}
+{"Time":"2026-11-01T22:51:36.342460421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c\n"}
+{"Time":"2026-11-01T22:51:36.342484463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve.func1()\n"}
+{"Time":"2026-11-01T22:51:36.342517379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.342624754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.342669171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Previous write at 0x00c000210090 by goroutine 22:\n"}
+{"Time":"2026-11-01T22:51:36.342707088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  bytes.(*Buffer).grow()\n"}
+{"Time":"2026-11-01T22:51:36.342731254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/bytes/buffer.go:155 +0x34c\n"}
+{"Time":"2026-11-01T22:51:36.342754838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  bytes.(*Buffer).Write()\n"}
+{"Time":"2026-11-01T22:51:36.342786296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/bytes/buffer.go:197 +0xb4\n"}
+{"Time":"2026-11-01T22:51:36.342818088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  fmt.Fprintf()\n"}
+{"Time":"2026-11-01T22:51:36.342843088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/fmt/print.go:217 +0x94\n"}
+{"Time":"2026-11-01T22:51:36.342875088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.(*Audit).Record()\n"}
+{"Time":"2026-11-01T22:51:36.342898213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4\n"}
+{"Time":"2026-11-01T22:51:36.342921713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.Reserve()\n"}
+{"Time":"2026-11-01T22:51:36.342945046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c\n"}
+{"Time":"2026-11-01T22:51:36.342969254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve.func1()\n"}
+{"Time":"2026-11-01T22:51:36.342992504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.343014838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.343039921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Goroutine 23 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.343063254Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve()\n"}
+{"Time":"2026-11-01T22:51:36.343086963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc\n"}
+{"Time":"2026-11-01T22:51:36.343109546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.343131838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.343155004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.343178129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.343205088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.343258338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"Goroutine 22 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.343280671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  example.com/shop/inventory.TestReserve()\n"}
+{"Time":"2026-11-01T22:51:36.343303379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc\n"}
+{"Time":"2026-11-01T22:51:36.343332129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.343354421Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.343382171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.343403963Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.343427171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.343450546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"    testing.go:1867: race detected during execution of test\n","OutputType":"error"}
+{"Time":"2026-11-01T22:51:36.343475879Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestReserve","Output":"--- FAIL: TestReserve (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.343500004Z","Action":"fail","Package":"example.com/shop/inventory","Test":"TestReserve","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.343551046Z","Action":"run","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe"}
+{"Time":"2026-11-01T22:51:36.343582838Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"=== RUN   TestCacheWarmAndServe\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.343604213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.343625171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"WARNING: DATA RACE\n"}
+{"Time":"2026-11-01T22:51:36.343645921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"Write at 0x00c000296090 by goroutine 25:\n"}
+{"Time":"2026-11-01T22:51:36.343666588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  runtime.mapaccess2_faststr()\n"}
+{"Time":"2026-11-01T22:51:36.343688629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc\n"}
+{"Time":"2026-11-01T22:51:36.343709296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.(*PriceCache).Set()\n"}
+{"Time":"2026-11-01T22:51:36.343730004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/cache.go:25 +0x98\n"}
+{"Time":"2026-11-01T22:51:36.343750588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.fill()\n"}
+{"Time":"2026-11-01T22:51:36.343801088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c\n"}
+{"Time":"2026-11-01T22:51:36.343832629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.TestCacheWarmAndServe.func1()\n"}
+{"Time":"2026-11-01T22:51:36.343886129Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x1c\n"}
+{"Time":"2026-11-01T22:51:36.343909713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.343932754Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"Previous read at 0x00c000296090 by goroutine 26:\n"}
+{"Time":"2026-11-01T22:51:36.343955213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  runtime.mapaccess1_faststr()\n"}
+{"Time":"2026-11-01T22:51:36.343983088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c\n"}
+{"Time":"2026-11-01T22:51:36.344005379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.(*PriceCache).Get()\n"}
+{"Time":"2026-11-01T22:51:36.344028546Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/cache.go:18 +0x90\n"}
+{"Time":"2026-11-01T22:51:36.344052171Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.TestCacheWarmAndServe.func2()\n"}
+{"Time":"2026-11-01T22:51:36.344075213Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x18\n"}
+{"Time":"2026-11-01T22:51:36.344098463Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.344121588Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"Goroutine 25 (running) created at:\n"}
+{"Time":"2026-11-01T22:51:36.344144046Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.TestCacheWarmAndServe()\n"}
+{"Time":"2026-11-01T22:51:36.344167671Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.344190629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.344213796Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.344237004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.344259921Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.344288504Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"\n"}
+{"Time":"2026-11-01T22:51:36.344311713Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"Goroutine 26 (finished) created at:\n"}
+{"Time":"2026-11-01T22:51:36.344334004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  example.com/shop/inventory.TestCacheWarmAndServe()\n"}
+{"Time":"2026-11-01T22:51:36.344368088Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x1fc\n"}
+{"Time":"2026-11-01T22:51:36.344392629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  testing.tRunner()\n"}
+{"Time":"2026-11-01T22:51:36.344438004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /usr/local/go/src/testing/testing.go:2195 +0x164\n"}
+{"Time":"2026-11-01T22:51:36.344460338Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"  testing.(*T).Run.gowrap1()\n"}
+{"Time":"2026-11-01T22:51:36.344491379Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"      /usr/local/go/src/testing/testing.go:2260 +0x34\n"}
+{"Time":"2026-11-01T22:51:36.344522629Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"==================\n"}
+{"Time":"2026-11-01T22:51:36.344546296Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"    testing.go:1867: race detected during execution of test\n","OutputType":"error"}
+{"Time":"2026-11-01T22:51:36.344584004Z","Action":"output","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Output":"--- FAIL: TestCacheWarmAndServe (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.344617254Z","Action":"fail","Package":"example.com/shop/inventory","Test":"TestCacheWarmAndServe","Elapsed":0}
+{"Time":"2026-11-01T22:51:36.344641004Z","Action":"output","Package":"example.com/shop/inventory","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.344693463Z","Action":"output","Package":"example.com/shop/inventory","Output":"FAIL\texample.com/shop/inventory\t0.016s\n","OutputType":"frame"}
+{"Time":"2026-11-01T22:51:36.344722671Z","Action":"fail","Package":"example.com/shop/inventory","Elapsed":0.016}
+{"Time":"2026-11-01T22:51:37.337219088Z","Action":"output","Package":"example.com/shop/healthy","Output":"ok  \texample.com/shop/healthy\t1.008s\n"}
+{"Time":"2026-11-01T22:51:37.337695755Z","Action":"pass","Package":"example.com/shop/healthy","Elapsed":1.009}

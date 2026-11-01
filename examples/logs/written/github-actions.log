@@ -1,0 +1,381 @@
+2026-11-01T10:15:00.0001301Z ?   	example.com/shop/cmd/warm	[no test files]
+2026-11-01T10:15:00.0002602Z ok  	example.com/shop/healthy	1.006s
+2026-11-01T10:15:00.0003903Z ==================
+2026-11-01T10:15:00.0005204Z WARNING: DATA RACE
+2026-11-01T10:15:00.0006505Z Write at 0x00c0000a4ff0 by goroutine 8:
+2026-11-01T10:15:00.0007806Z   runtime.mapaccess2_faststr()
+2026-11-01T10:15:00.0009107Z       /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc
+2026-11-01T10:15:00.0010408Z   example.com/shop/inventory.(*PriceCache).Set()
+2026-11-01T10:15:00.0011709Z       /workspace/repo/examples/programs/inventory/cache.go:25 +0x98
+2026-11-01T10:15:00.0013010Z   example.com/shop/inventory.fill()
+2026-11-01T10:15:00.0014311Z       /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c
+2026-11-01T10:15:00.0015612Z   example.com/shop/inventory.TestCacheConcurrentRefresh.func1()
+2026-11-01T10:15:00.0016913Z       /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x1c
+2026-11-01T10:15:00.0018214Z 
+2026-11-01T10:15:00.0019515Z Previous read at 0x00c0000a4ff0 by goroutine 9:
+2026-11-01T10:15:00.0020816Z   runtime.mapaccess1_faststr()
+2026-11-01T10:15:00.0022117Z       /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c
+2026-11-01T10:15:00.0023418Z   example.com/shop/inventory.(*PriceCache).Get()
+2026-11-01T10:15:00.0024719Z       /workspace/repo/examples/programs/inventory/cache.go:18 +0x90
+2026-11-01T10:15:00.0026020Z   example.com/shop/inventory.TestCacheConcurrentRefresh.func2()
+2026-11-01T10:15:00.0027321Z       /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x18
+2026-11-01T10:15:00.0028622Z 
+2026-11-01T10:15:00.0029923Z Goroutine 8 (running) created at:
+2026-11-01T10:15:00.0031224Z   example.com/shop/inventory.TestCacheConcurrentRefresh()
+2026-11-01T10:15:00.0032525Z       /workspace/repo/examples/programs/inventory/inventory_test.go:18 +0x164
+2026-11-01T10:15:00.0033826Z   testing.tRunner()
+2026-11-01T10:15:00.0035127Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:00.0036428Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:00.0037729Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:00.0039030Z 
+2026-11-01T10:15:00.0040331Z Goroutine 9 (finished) created at:
+2026-11-01T10:15:00.0041632Z   example.com/shop/inventory.TestCacheConcurrentRefresh()
+2026-11-01T10:15:00.0042933Z       /workspace/repo/examples/programs/inventory/inventory_test.go:19 +0x1fc
+2026-11-01T10:15:00.0044234Z   testing.tRunner()
+2026-11-01T10:15:00.0045535Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:00.0046836Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:00.0048137Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:00.0049438Z ==================
+2026-11-01T10:15:00.0050739Z --- FAIL: TestCacheConcurrentRefresh (0.00s)
+2026-11-01T10:15:01.0052040Z     testing.go:1867: race detected during execution of test
+2026-11-01T10:15:01.0053341Z ==================
+2026-11-01T10:15:01.0054642Z WARNING: DATA RACE
+2026-11-01T10:15:01.0055943Z Read at 0x00c000012408 by goroutine 14:
+2026-11-01T10:15:01.0057244Z   example.com/shop/inventory.LoadAll.func1()
+2026-11-01T10:15:01.0058545Z       /workspace/repo/examples/programs/inventory/batch.go:25 +0xd4
+2026-11-01T10:15:01.0059846Z 
+2026-11-01T10:15:01.0061147Z Previous write at 0x00c000012408 by goroutine 13:
+2026-11-01T10:15:01.0062448Z   example.com/shop/inventory.LoadAll.func1()
+2026-11-01T10:15:01.0063749Z       /workspace/repo/examples/programs/inventory/batch.go:25 +0x138
+2026-11-01T10:15:01.0065050Z 
+2026-11-01T10:15:01.0066351Z Goroutine 14 (running) created at:
+2026-11-01T10:15:01.0067652Z   example.com/shop/inventory.LoadAll()
+2026-11-01T10:15:01.0068953Z       /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+2026-11-01T10:15:01.0070254Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:01.0071555Z       /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0
+2026-11-01T10:15:01.0072856Z   testing.tRunner()
+2026-11-01T10:15:01.0074157Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:01.0075458Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:01.0076759Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:01.0078060Z 
+2026-11-01T10:15:01.0079361Z Goroutine 13 (finished) created at:
+2026-11-01T10:15:01.0080662Z   example.com/shop/inventory.LoadAll()
+2026-11-01T10:15:01.0081963Z       /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+2026-11-01T10:15:01.0083264Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:01.0084565Z       /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0
+2026-11-01T10:15:01.0085866Z   testing.tRunner()
+2026-11-01T10:15:01.0087167Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:01.0088468Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:01.0089769Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:01.0091070Z ==================
+2026-11-01T10:15:01.0092371Z ==================
+2026-11-01T10:15:01.0093672Z WARNING: DATA RACE
+2026-11-01T10:15:01.0094973Z Read at 0x00c0000142c8 by goroutine 14:
+2026-11-01T10:15:01.0096274Z   runtime.growslice()
+2026-11-01T10:15:01.0097575Z       /usr/local/go/src/runtime/slice.go:178 +0x0
+2026-11-01T10:15:01.0098876Z   example.com/shop/inventory.LoadAll.func1()
+2026-11-01T10:15:01.0100177Z       /workspace/repo/examples/programs/inventory/batch.go:25 +0x104
+2026-11-01T10:15:01.0101478Z 
+2026-11-01T10:15:01.0102779Z Previous write at 0x00c0000142c8 by goroutine 13:
+2026-11-01T10:15:02.0104080Z   example.com/shop/inventory.LoadAll.func1()
+2026-11-01T10:15:02.0105381Z       /workspace/repo/examples/programs/inventory/batch.go:25 +0x120
+2026-11-01T10:15:02.0106682Z 
+2026-11-01T10:15:02.0107983Z Goroutine 14 (running) created at:
+2026-11-01T10:15:02.0109284Z   example.com/shop/inventory.LoadAll()
+2026-11-01T10:15:02.0110585Z       /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+2026-11-01T10:15:02.0111886Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:02.0113187Z       /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0
+2026-11-01T10:15:02.0114488Z   testing.tRunner()
+2026-11-01T10:15:02.0115789Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:02.0117090Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:02.0118391Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:02.0119692Z 
+2026-11-01T10:15:02.0120993Z Goroutine 13 (finished) created at:
+2026-11-01T10:15:02.0122294Z   example.com/shop/inventory.LoadAll()
+2026-11-01T10:15:02.0123595Z       /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+2026-11-01T10:15:02.0124896Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:02.0126197Z       /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0
+2026-11-01T10:15:02.0127498Z   testing.tRunner()
+2026-11-01T10:15:02.0128799Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:02.0130100Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:02.0131401Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:02.0132702Z ==================
+2026-11-01T10:15:02.0134003Z ==================
+2026-11-01T10:15:02.0135304Z WARNING: DATA RACE
+2026-11-01T10:15:02.0136605Z Write at 0x00c0000a50b0 by goroutine 11:
+2026-11-01T10:15:02.0137906Z   runtime.mapaccess2_faststr()
+2026-11-01T10:15:02.0139207Z       /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc
+2026-11-01T10:15:02.0140508Z   example.com/shop/inventory.(*PriceCache).Set()
+2026-11-01T10:15:02.0141809Z       /workspace/repo/examples/programs/inventory/cache.go:25 +0x98
+2026-11-01T10:15:02.0143110Z   example.com/shop/inventory.fill()
+2026-11-01T10:15:02.0144411Z       /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c
+2026-11-01T10:15:02.0145712Z   example.com/shop/inventory.TestLoadAll.func1()
+2026-11-01T10:15:02.0147013Z       /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x1c
+2026-11-01T10:15:02.0148314Z 
+2026-11-01T10:15:02.0149615Z Previous read at 0x00c0000a50b0 by goroutine 13:
+2026-11-01T10:15:02.0150916Z   runtime.mapaccess1_faststr()
+2026-11-01T10:15:02.0152217Z       /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c
+2026-11-01T10:15:02.0153518Z   example.com/shop/inventory.(*PriceCache).Get()
+2026-11-01T10:15:02.0154819Z       /workspace/repo/examples/programs/inventory/cache.go:18 +0xac
+2026-11-01T10:15:03.0156120Z   example.com/shop/inventory.LoadAll.func1()
+2026-11-01T10:15:03.0157421Z       /workspace/repo/examples/programs/inventory/batch.go:20 +0x8c
+2026-11-01T10:15:03.0158722Z 
+2026-11-01T10:15:03.0160023Z Goroutine 11 (running) created at:
+2026-11-01T10:15:03.0161324Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:03.0162625Z       /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x218
+2026-11-01T10:15:03.0163926Z   testing.tRunner()
+2026-11-01T10:15:03.0165227Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:03.0166528Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:03.0167829Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:03.0169130Z 
+2026-11-01T10:15:03.0170431Z Goroutine 13 (finished) created at:
+2026-11-01T10:15:03.0171732Z   example.com/shop/inventory.LoadAll()
+2026-11-01T10:15:03.0173033Z       /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+2026-11-01T10:15:03.0174334Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:03.0175635Z       /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0
+2026-11-01T10:15:03.0176936Z   testing.tRunner()
+2026-11-01T10:15:03.0178237Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:03.0179538Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:03.0180839Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:03.0182140Z ==================
+2026-11-01T10:15:03.0183441Z ==================
+2026-11-01T10:15:03.0184742Z WARNING: DATA RACE
+2026-11-01T10:15:03.0186043Z Write at 0x00c0000c64f8 by goroutine 11:
+2026-11-01T10:15:03.0187344Z   example.com/shop/inventory.(*PriceCache).Set()
+2026-11-01T10:15:03.0188645Z       /workspace/repo/examples/programs/inventory/cache.go:25 +0xa4
+2026-11-01T10:15:03.0189946Z   example.com/shop/inventory.fill()
+2026-11-01T10:15:03.0191247Z       /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c
+2026-11-01T10:15:03.0192548Z   example.com/shop/inventory.TestLoadAll.func1()
+2026-11-01T10:15:03.0193849Z       /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x1c
+2026-11-01T10:15:03.0195150Z 
+2026-11-01T10:15:03.0196451Z Previous read at 0x00c0000c64f8 by goroutine 12:
+2026-11-01T10:15:03.0197752Z   example.com/shop/inventory.(*PriceCache).Get()
+2026-11-01T10:15:03.0199053Z       /workspace/repo/examples/programs/inventory/cache.go:18 +0xb8
+2026-11-01T10:15:03.0200354Z   example.com/shop/inventory.LoadAll.func1()
+2026-11-01T10:15:03.0201655Z       /workspace/repo/examples/programs/inventory/batch.go:20 +0x8c
+2026-11-01T10:15:03.0202956Z 
+2026-11-01T10:15:03.0204257Z Goroutine 11 (running) created at:
+2026-11-01T10:15:03.0205558Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:03.0206859Z       /workspace/repo/examples/programs/inventory/inventory_test.go:27 +0x218
+2026-11-01T10:15:04.0208160Z   testing.tRunner()
+2026-11-01T10:15:04.0209461Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:04.0210762Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:04.0212063Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:04.0213364Z 
+2026-11-01T10:15:04.0214665Z Goroutine 12 (running) created at:
+2026-11-01T10:15:04.0215966Z   example.com/shop/inventory.LoadAll()
+2026-11-01T10:15:04.0217267Z       /workspace/repo/examples/programs/inventory/batch.go:18 +0xd4
+2026-11-01T10:15:04.0218568Z   example.com/shop/inventory.TestLoadAll()
+2026-11-01T10:15:04.0219869Z       /workspace/repo/examples/programs/inventory/inventory_test.go:28 +0x2a0
+2026-11-01T10:15:04.0221170Z   testing.tRunner()
+2026-11-01T10:15:04.0222471Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:04.0223772Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:04.0225073Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:04.0226374Z ==================
+2026-11-01T10:15:04.0227675Z --- FAIL: TestLoadAll (0.00s)
+2026-11-01T10:15:04.0228976Z     testing.go:1867: race detected during execution of test
+2026-11-01T10:15:04.0230277Z ==================
+2026-11-01T10:15:04.0231578Z WARNING: DATA RACE
+2026-11-01T10:15:04.0232879Z Write at 0x00c00020c078 by goroutine 18:
+2026-11-01T10:15:04.0234180Z   ??()
+2026-11-01T10:15:04.0235481Z       -:0 +0x3821c
+2026-11-01T10:15:04.0236782Z   sync/atomic.AddInt64()
+2026-11-01T10:15:04.0238083Z       <autogenerated>:1 +0x10
+2026-11-01T10:15:04.0239384Z 
+2026-11-01T10:15:04.0240685Z Previous read at 0x00c00020c078 by goroutine 16:
+2026-11-01T10:15:04.0241986Z   example.com/shop/inventory.(*Stats).Snapshot()
+2026-11-01T10:15:04.0243287Z       /workspace/repo/examples/programs/inventory/stats.go:15 +0x12c
+2026-11-01T10:15:04.0244588Z   example.com/shop/inventory.TestStats()
+2026-11-01T10:15:04.0245889Z       /workspace/repo/examples/programs/inventory/inventory_test.go:42 +0x124
+2026-11-01T10:15:04.0247190Z   testing.tRunner()
+2026-11-01T10:15:04.0248491Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:04.0249792Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:04.0251093Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:04.0252394Z 
+2026-11-01T10:15:04.0253695Z Goroutine 18 (running) created at:
+2026-11-01T10:15:04.0254996Z   example.com/shop/inventory.TestStats()
+2026-11-01T10:15:04.0256297Z       /workspace/repo/examples/programs/inventory/inventory_test.go:40 +0x6c
+2026-11-01T10:15:04.0257598Z   testing.tRunner()
+2026-11-01T10:15:04.0258899Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:05.0260200Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:05.0261501Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:05.0262802Z 
+2026-11-01T10:15:05.0264103Z Goroutine 16 (running) created at:
+2026-11-01T10:15:05.0265404Z   testing.(*T).Run()
+2026-11-01T10:15:05.0266705Z       /usr/local/go/src/testing/testing.go:2260 +0x7bc
+2026-11-01T10:15:05.0268006Z   testing.runTests.func1()
+2026-11-01T10:15:05.0269307Z       /usr/local/go/src/testing/testing.go:2744 +0x74
+2026-11-01T10:15:05.0270608Z   testing.tRunner()
+2026-11-01T10:15:05.0271909Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:05.0273210Z   testing.runTests()
+2026-11-01T10:15:05.0274511Z       /usr/local/go/src/testing/testing.go:2742 +0x7a0
+2026-11-01T10:15:05.0275812Z   testing.(*M).Run()
+2026-11-01T10:15:05.0277113Z       /usr/local/go/src/testing/testing.go:2602 +0xb38
+2026-11-01T10:15:05.0278414Z   main.main()
+2026-11-01T10:15:05.0279715Z       _testmain.go:54 +0x100
+2026-11-01T10:15:05.0281016Z ==================
+2026-11-01T10:15:05.0282317Z --- FAIL: TestStats (0.00s)
+2026-11-01T10:15:05.0283618Z     testing.go:1867: race detected during execution of test
+2026-11-01T10:15:05.0284919Z ==================
+2026-11-01T10:15:05.0286220Z WARNING: DATA RACE
+2026-11-01T10:15:05.0287521Z Write at 0x00c0001ac0b0 by goroutine 23:
+2026-11-01T10:15:05.0288822Z   bytes.(*Buffer).Write()
+2026-11-01T10:15:05.0290123Z       /usr/local/go/src/bytes/buffer.go:194 +0x38
+2026-11-01T10:15:05.0291424Z   fmt.Fprintf()
+2026-11-01T10:15:05.0292725Z       /usr/local/go/src/fmt/print.go:217 +0x94
+2026-11-01T10:15:05.0294026Z   example.com/shop/inventory.(*Audit).Record()
+2026-11-01T10:15:05.0295327Z       /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4
+2026-11-01T10:15:05.0296628Z   example.com/shop/inventory.Reserve()
+2026-11-01T10:15:05.0297929Z       /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c
+2026-11-01T10:15:05.0299230Z   example.com/shop/inventory.TestReserve.func1()
+2026-11-01T10:15:05.0300531Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+2026-11-01T10:15:05.0301832Z 
+2026-11-01T10:15:05.0303133Z Previous write at 0x00c0001ac0b0 by goroutine 22:
+2026-11-01T10:15:05.0304434Z   bytes.(*Buffer).Write()
+2026-11-01T10:15:05.0305735Z       /usr/local/go/src/bytes/buffer.go:194 +0x38
+2026-11-01T10:15:05.0307036Z   fmt.Fprintf()
+2026-11-01T10:15:05.0308337Z       /usr/local/go/src/fmt/print.go:217 +0x94
+2026-11-01T10:15:05.0309638Z   example.com/shop/inventory.(*Audit).Record()
+2026-11-01T10:15:05.0310939Z       /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4
+2026-11-01T10:15:06.0312240Z   example.com/shop/inventory.Reserve()
+2026-11-01T10:15:06.0313541Z       /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c
+2026-11-01T10:15:06.0314842Z   example.com/shop/inventory.TestReserve.func1()
+2026-11-01T10:15:06.0316143Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+2026-11-01T10:15:06.0317444Z 
+2026-11-01T10:15:06.0318745Z Goroutine 23 (running) created at:
+2026-11-01T10:15:06.0320046Z   example.com/shop/inventory.TestReserve()
+2026-11-01T10:15:06.0321347Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc
+2026-11-01T10:15:06.0322648Z   testing.tRunner()
+2026-11-01T10:15:06.0323949Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:06.0325250Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:06.0326551Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:06.0327852Z 
+2026-11-01T10:15:06.0329153Z Goroutine 22 (finished) created at:
+2026-11-01T10:15:06.0330454Z   example.com/shop/inventory.TestReserve()
+2026-11-01T10:15:06.0331755Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc
+2026-11-01T10:15:06.0333056Z   testing.tRunner()
+2026-11-01T10:15:06.0334357Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:06.0335658Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:06.0336959Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:06.0338260Z ==================
+2026-11-01T10:15:06.0339561Z ==================
+2026-11-01T10:15:06.0340862Z WARNING: DATA RACE
+2026-11-01T10:15:06.0342163Z Read at 0x00c0001ac090 by goroutine 23:
+2026-11-01T10:15:06.0343464Z   bytes.(*Buffer).tryGrowByReslice()
+2026-11-01T10:15:06.0344765Z       /usr/local/go/src/bytes/buffer.go:134 +0x44
+2026-11-01T10:15:06.0346066Z   bytes.(*Buffer).Write()
+2026-11-01T10:15:06.0347367Z       /usr/local/go/src/bytes/buffer.go:195 +0xac
+2026-11-01T10:15:06.0348668Z   fmt.Fprintf()
+2026-11-01T10:15:06.0349969Z       /usr/local/go/src/fmt/print.go:217 +0x94
+2026-11-01T10:15:06.0351270Z   example.com/shop/inventory.(*Audit).Record()
+2026-11-01T10:15:06.0352571Z       /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4
+2026-11-01T10:15:06.0353872Z   example.com/shop/inventory.Reserve()
+2026-11-01T10:15:06.0355173Z       /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c
+2026-11-01T10:15:06.0356474Z   example.com/shop/inventory.TestReserve.func1()
+2026-11-01T10:15:06.0357775Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+2026-11-01T10:15:06.0359076Z 
+2026-11-01T10:15:06.0360377Z Previous write at 0x00c0001ac090 by goroutine 22:
+2026-11-01T10:15:06.0361678Z   bytes.(*Buffer).grow()
+2026-11-01T10:15:06.0362979Z       /usr/local/go/src/bytes/buffer.go:155 +0x34c
+2026-11-01T10:15:07.0364280Z   bytes.(*Buffer).Write()
+2026-11-01T10:15:07.0365581Z       /usr/local/go/src/bytes/buffer.go:197 +0xb4
+2026-11-01T10:15:07.0366882Z   fmt.Fprintf()
+2026-11-01T10:15:07.0368183Z       /usr/local/go/src/fmt/print.go:217 +0x94
+2026-11-01T10:15:07.0369484Z   example.com/shop/inventory.(*Audit).Record()
+2026-11-01T10:15:07.0370785Z       /workspace/repo/examples/programs/inventory/audit.go:14 +0xf4
+2026-11-01T10:15:07.0372086Z   example.com/shop/inventory.Reserve()
+2026-11-01T10:15:07.0373387Z       /workspace/repo/examples/programs/inventory/reserve.go:7 +0x7c
+2026-11-01T10:15:07.0374688Z   example.com/shop/inventory.TestReserve.func1()
+2026-11-01T10:15:07.0375989Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0x1c
+2026-11-01T10:15:07.0377290Z 
+2026-11-01T10:15:07.0378591Z Goroutine 23 (running) created at:
+2026-11-01T10:15:07.0379892Z   example.com/shop/inventory.TestReserve()
+2026-11-01T10:15:07.0381193Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc
+2026-11-01T10:15:07.0382494Z   testing.tRunner()
+2026-11-01T10:15:07.0383795Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:07.0385096Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:07.0386397Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:07.0387698Z 
+2026-11-01T10:15:07.0388999Z Goroutine 22 (finished) created at:
+2026-11-01T10:15:07.0390300Z   example.com/shop/inventory.TestReserve()
+2026-11-01T10:15:07.0391601Z       /workspace/repo/examples/programs/inventory/inventory_test.go:51 +0xdc
+2026-11-01T10:15:07.0392902Z   testing.tRunner()
+2026-11-01T10:15:07.0394203Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:07.0395504Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:07.0396805Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:07.0398106Z ==================
+2026-11-01T10:15:07.0399407Z --- FAIL: TestReserve (0.00s)
+2026-11-01T10:15:07.0400708Z     testing.go:1867: race detected during execution of test
+2026-11-01T10:15:07.0402009Z ==================
+2026-11-01T10:15:07.0403310Z WARNING: DATA RACE
+2026-11-01T10:15:07.0404611Z Read at 0x00c000290090 by goroutine 26:
+2026-11-01T10:15:07.0405912Z   runtime.mapaccess1_faststr()
+2026-11-01T10:15:07.0407213Z       /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:114 +0x4c
+2026-11-01T10:15:07.0408514Z   example.com/shop/inventory.(*PriceCache).Get()
+2026-11-01T10:15:07.0409815Z       /workspace/repo/examples/programs/inventory/cache.go:18 +0x90
+2026-11-01T10:15:07.0411116Z   example.com/shop/inventory.TestCacheWarmAndServe.func2()
+2026-11-01T10:15:07.0412417Z       /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x18
+2026-11-01T10:15:07.0413718Z 
+2026-11-01T10:15:07.0415019Z Previous write at 0x00c000290090 by goroutine 25:
+2026-11-01T10:15:08.0416320Z   runtime.mapaccess2_faststr()
+2026-11-01T10:15:08.0417621Z       /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:120 +0x2bc
+2026-11-01T10:15:08.0418922Z   example.com/shop/inventory.(*PriceCache).Set()
+2026-11-01T10:15:08.0420223Z       /workspace/repo/examples/programs/inventory/cache.go:25 +0x98
+2026-11-01T10:15:08.0421524Z   example.com/shop/inventory.fill()
+2026-11-01T10:15:08.0422825Z       /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c
+2026-11-01T10:15:08.0424126Z   example.com/shop/inventory.TestCacheWarmAndServe.func1()
+2026-11-01T10:15:08.0425427Z       /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x1c
+2026-11-01T10:15:08.0426728Z 
+2026-11-01T10:15:08.0428029Z Goroutine 26 (running) created at:
+2026-11-01T10:15:08.0429330Z   example.com/shop/inventory.TestCacheWarmAndServe()
+2026-11-01T10:15:08.0430631Z       /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x1fc
+2026-11-01T10:15:08.0431932Z   testing.tRunner()
+2026-11-01T10:15:08.0433233Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:08.0434534Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:08.0435835Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:08.0437136Z 
+2026-11-01T10:15:08.0438437Z Goroutine 25 (finished) created at:
+2026-11-01T10:15:08.0439738Z   example.com/shop/inventory.TestCacheWarmAndServe()
+2026-11-01T10:15:08.0441039Z       /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x164
+2026-11-01T10:15:08.0442340Z   testing.tRunner()
+2026-11-01T10:15:08.0443641Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:08.0444942Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:08.0446243Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:08.0447544Z ==================
+2026-11-01T10:15:08.0448845Z ==================
+2026-11-01T10:15:08.0450146Z WARNING: DATA RACE
+2026-11-01T10:15:08.0451447Z Read at 0x00c0002a4030 by goroutine 26:
+2026-11-01T10:15:08.0452748Z   example.com/shop/inventory.(*PriceCache).Get()
+2026-11-01T10:15:08.0454049Z       /workspace/repo/examples/programs/inventory/cache.go:18 +0x94
+2026-11-01T10:15:08.0455350Z   example.com/shop/inventory.TestCacheWarmAndServe.func2()
+2026-11-01T10:15:08.0456651Z       /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x18
+2026-11-01T10:15:08.0457952Z 
+2026-11-01T10:15:08.0459253Z Previous write at 0x00c0002a4030 by goroutine 25:
+2026-11-01T10:15:08.0460554Z   example.com/shop/inventory.(*PriceCache).Set()
+2026-11-01T10:15:08.0461855Z       /workspace/repo/examples/programs/inventory/cache.go:25 +0xa4
+2026-11-01T10:15:08.0463156Z   example.com/shop/inventory.fill()
+2026-11-01T10:15:08.0464457Z       /workspace/repo/examples/programs/inventory/inventory_test.go:10 +0x11c
+2026-11-01T10:15:08.0465758Z   example.com/shop/inventory.TestCacheWarmAndServe.func1()
+2026-11-01T10:15:08.0467059Z       /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x1c
+2026-11-01T10:15:09.0468360Z 
+2026-11-01T10:15:09.0469661Z Goroutine 26 (running) created at:
+2026-11-01T10:15:09.0470962Z   example.com/shop/inventory.TestCacheWarmAndServe()
+2026-11-01T10:15:09.0472263Z       /workspace/repo/examples/programs/inventory/inventory_test.go:64 +0x1fc
+2026-11-01T10:15:09.0473564Z   testing.tRunner()
+2026-11-01T10:15:09.0474865Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:09.0476166Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:09.0477467Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:09.0478768Z 
+2026-11-01T10:15:09.0480069Z Goroutine 25 (finished) created at:
+2026-11-01T10:15:09.0481370Z   example.com/shop/inventory.TestCacheWarmAndServe()
+2026-11-01T10:15:09.0482671Z       /workspace/repo/examples/programs/inventory/inventory_test.go:63 +0x164
+2026-11-01T10:15:09.0483972Z   testing.tRunner()
+2026-11-01T10:15:09.0485273Z       /usr/local/go/src/testing/testing.go:2195 +0x164
+2026-11-01T10:15:09.0486574Z   testing.(*T).Run.gowrap1()
+2026-11-01T10:15:09.0487875Z       /usr/local/go/src/testing/testing.go:2260 +0x34
+2026-11-01T10:15:09.0489176Z ==================
+2026-11-01T10:15:09.0490477Z --- FAIL: TestCacheWarmAndServe (0.00s)
+2026-11-01T10:15:09.0491778Z     testing.go:1867: race detected during execution of test
+2026-11-01T10:15:09.0493079Z FAIL
+2026-11-01T10:15:09.0494380Z FAIL	example.com/shop/inventory	0.006s
+2026-11-01T10:15:09.0495681Z FAIL
