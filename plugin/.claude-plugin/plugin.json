@@ -1,6 +1,6 @@
 {
   "name": "racesift",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Group and rank Go race detector reports from go test -race output, with the code lines involved, the tests that hit each race and hints for common causes.",
   "author": {
     "name": "Giulliano Macedo",

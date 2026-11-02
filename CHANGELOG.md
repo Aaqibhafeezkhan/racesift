@@ -4,6 +4,14 @@ All notable changes are documented here, in [Keep a Changelog](https://keepachan
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-02
+
+### Added
+- Add --top to review for long race lists (#7)
+
+### Fixed
+- Say when a race report has no readable accesses (#6)
+
 ## [0.1.0] - 2026-11-01
 ### Added
 - `review` command: groups race reports by their two code locations, ranks them by tests hit, and lists lines in more than one race
