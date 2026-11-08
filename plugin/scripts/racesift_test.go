@@ -310,3 +310,34 @@ func TestUnreadableReportIsNotACleanRun(t *testing.T) {
 		t.Errorf("hints: %+v", hints)
 	}
 }
+
+func TestWindowsRaceOutputPaths(t *testing.T) {
+	s := review(t, "windows-paths.log")
+	if len(s.Races) != 1 {
+		t.Fatalf("got %d races, want 1", len(s.Races))
+	}
+	if len(s.Races[0].Locations) != 2 {
+		t.Fatalf("got %d locations, want 2", len(s.Races[0].Locations))
+	}
+	want := map[int]string{
+		12: "C:/Users/x/app/main.go",
+		20: "C:/Users/x/app/main.go",
+	}
+	for _, loc := range s.Races[0].Locations {
+		if got := want[loc.Line]; got == "" || loc.File != got {
+			t.Errorf("location = %q:%d, want %q", loc.File, loc.Line, got)
+		}
+		if got := shortFile(loc.File); got != "app/main.go" {
+			t.Errorf("shortFile(%q) = %q, want app/main.go", loc.File, got)
+		}
+		if got := locText(loc); !strings.Contains(got, "app/main.go:"+strconv.Itoa(loc.Line)) {
+			t.Errorf("location text = %q", got)
+		}
+	}
+	if !isUser(Frame{Func: "example.com/app.(*Store).Get", File: "C:/Users/x/app/main.go"}) {
+		t.Error("Windows drive path was not recognized as a user source file")
+	}
+	if got := shortFile(`C:\Users\x\app\main.go`); got != "app/main.go" {
+		t.Errorf("shortFile with Windows separators = %q, want app/main.go", got)
+	}
+}
